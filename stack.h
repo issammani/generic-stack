@@ -1,18 +1,26 @@
 #ifndef _STACK
 #define _STACK
 
+typedef enum {false, true} bool;
+
 typedef struct stack_node {
     void* data;
-    int data_size;
     struct stack_node* next;
 }stack_node;
 
-typedef stack_node* stack;
+typedef struct stack {
+    int size;
+    int data_size;
+    stack_node *head;
+}stack;
 
-// function prototypes
-stack new_stack();
-int push(stack s, void* element);
-void* pop(stack s);
+// main functions
+void new_stack(stack* s, int data_size);
+void push(stack* s, void* element);
+void* pop(stack* s);
 
+// helper functions
+int size(stack* s);
+void display(stack* s);
 
 #endif

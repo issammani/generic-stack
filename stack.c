@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "stack.h"
 
 // create an empty stack
@@ -32,6 +33,8 @@ void* pop(stack* s){
         exit(1);
     }
 
+    s->size--;
+    
     return s->head->data;
 }
 
@@ -42,11 +45,11 @@ int size(stack* s){
 
 void free_stack(stack* s)
 {
-  stack_node *tmp;
-  while(s->head) {
-    tmp = s->head;
-    s->head = s->head->next;
-    free(tmp->data);
-    free(tmp);
-  }
+    stack_node *tmp;
+    while(s->head) {
+        tmp = s->head;
+        s->head = s->head->next;
+        free(tmp->data);
+        free(tmp);
+    }
 }

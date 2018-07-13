@@ -3,6 +3,6 @@
 !**/*.*
 
 !**/Makefile
-
+!**/LICENSE
 .vscode/
 *.o

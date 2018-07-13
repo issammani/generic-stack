@@ -39,19 +39,14 @@ int size(stack* s){
     return s->size;
 }
 
-// // display stack
-// void display(stack s){
 
-//     if(!s){
-//         printf("Stack is empty!\n");
-//         return 1;
-//     }
-//     stack tmp = s;
-    
-//     while(tmp->next){
-//         printf("loop \n");
-//     }
-
-//     printf("Done ! \n");
-
-// }
+void free_stack(stack* s)
+{
+  stack_node *tmp;
+  while(s->head) {
+    tmp = s->head;
+    s->head = s->head->next;
+    free(tmp->data);
+    free(tmp);
+  }
+}

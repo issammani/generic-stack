@@ -18,9 +18,9 @@ typedef struct stack {
 void new_stack(stack* s, int data_size);
 void push(stack* s, void* element);
 void* pop(stack* s);
+void free_stack(stack* s);
 
 // helper functions
 int size(stack* s);
-void display(stack* s);
 
 #endif

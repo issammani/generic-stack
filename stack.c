@@ -32,10 +32,15 @@ void* pop(stack* s){
         printf("Stack is empty !\n");
         exit(1);
     }
-
+    
+    stack_node* tmp = s->head;
+    s->head = s->head->next;
     s->size--;
     
-    return s->head->data;
+    void* data = tmp->data;
+    free(tmp);
+    
+    return data;
 }
 
 int size(stack* s){
@@ -51,5 +56,15 @@ void free_stack(stack* s)
         s->head = s->head->next;
         free(tmp->data);
         free(tmp);
+    }
+}
+
+// prints the stack
+void print_stack(stack s, void (*print_data)(void* data)){
+    
+    stack_node *tmp = s.head;
+    while(tmp) {
+        print_data(tmp->data);
+        tmp = tmp->next;
     }
 }

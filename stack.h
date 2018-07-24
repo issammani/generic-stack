@@ -23,4 +23,7 @@ void free_stack(stack* s);
 // helper functions
 int size(stack* s);
 
+// prints the stack
+void print_stack(stack s, void (*print_data)(void* data));
+
 #endif

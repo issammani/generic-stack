@@ -30,7 +30,7 @@ typedef struct {
     int day,month,year;
 }Date;
 ```
-Creating a stack should look something like this :
+#### create a stack ####
 
 ```C
     stack s;
@@ -39,6 +39,11 @@ Creating a stack should look something like this :
     // create a new stack and supply size of data
     new_stack(&s,sizeof(Date));
 
+```
+
+#### pushing and popping ####
+
+ ```C   
     // push element into stack
     push(&s,&d);
 
@@ -49,8 +54,28 @@ Creating a stack should look something like this :
     pop(&s);
     printf("%d\n",size(&s)); // 0
 
+```
+#### printing a stack ####
+
+```C
+// function to print a Date
+void print_date(void* data){
+    Date d = *(Date*)data;
+    printf("%d/%d/%d \n",d.day,d.month,d.year);
+}
+
+// print in main
+print_stack(s,print_data);
+
+````
+Note that you should provide your own function to print the custom data type stored in the stack.
+
+#### freeing a stack ####
+
+```C
     // free the stack
     free_stack(&s);
+
 ```
 
 ## License
